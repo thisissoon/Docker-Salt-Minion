@@ -14,7 +14,7 @@ RUN apt-get install -y software-properties-common
 
 # Add the Salt Stack Repository
 
-RUN add-apt-repository -y ppa:saltstack/salt
+RUN add-apt-repository -y ppa:saltstack/salt{{ version }}
 
 # Install Salt-Minion
 
