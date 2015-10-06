@@ -8,13 +8,11 @@ MAINTAINER SOON_ <dorks@thisissoon.com>
 # Update System
 RUN apt-get update && apt-get upgrade -y -o DPkg::Options::=--force-confold
 
-# Install Development Version @ 2014.7
+# Install Development Version @ {{version}}
 
 ADD https://bootstrap.saltstack.com /usr/local/bin/install_salt.sh
 RUN chmod +x /usr/local/bin/install_salt.sh
-ADD relay.sh /usr/local/bin/relay.sh
-RUN chmod +x /usr/local/bin/relay.sh
-RUN relay.sh install_salt.sh git v2014.7
+RUN install_salt.sh -d -X -P git v{{version}}
 
 # Volumes
 
