@@ -1,5 +1,5 @@
 #
-# Salt Stack Salt Master Container
+# Salt Stack Minion Container
 #
 
 FROM ubuntu:14.04
@@ -16,7 +16,7 @@ RUN apt-get install -y software-properties-common
 
 RUN add-apt-repository -y ppa:saltstack/salt
 
-# Install Salt-Master and Salt Syndic
+# Install Salt-Minion
 
 RUN apt-get install -y salt-minion
 
