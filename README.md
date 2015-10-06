@@ -4,6 +4,18 @@ A Docker Image for a Salt Minion. This image allows you to run a Salt Minion
 enabled server within a Docker container. This is designed for testing purposes
 of Salt States contained within a Salt Master server.
 
+## Building the container
+
+First we need to generate all the container Dockerfiles
+
+    python generate.py
+
+Then you can build the container you want as follows
+
+    docker build -t soon/salt-minion 2015.8
+
+replacing "2015.8" with the Salt version you want
+
 ## Running the container
 
 Simply run this docker command:

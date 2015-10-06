@@ -1,5 +1,5 @@
 #
-# Salt Stack Salt Master Container
+# Salt Stack Minion Container
 #
 
 FROM ubuntu:14.04
@@ -8,17 +8,11 @@ MAINTAINER SOON_ <dorks@thisissoon.com>
 # Update System
 RUN apt-get update && apt-get upgrade -y -o DPkg::Options::=--force-confold
 
-# Dependencies
+# Install Development Version @ {{version}}
 
-RUN apt-get install -y software-properties-common
-
-# Add the Salt Stack Repository
-
-RUN add-apt-repository -y ppa:saltstack/salt
-
-# Install Salt-Master and Salt Syndic
-
-RUN apt-get install -y salt-minion
+ADD https://bootstrap.saltstack.com /usr/local/bin/install_salt.sh
+RUN chmod +x /usr/local/bin/install_salt.sh
+RUN install_salt.sh -d -X -P git v{{version}}
 
 # Volumes
 
